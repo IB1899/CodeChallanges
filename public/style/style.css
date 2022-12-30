@@ -1,0 +1,58 @@
+*::-moz-selection {
+  background: none;
+}
+
+*::selection {
+  background: none;
+}
+
+body {
+  background: light;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+}
+body .keyboard {
+  display: grid;
+  grid-template-columns: repeat(10, 50px);
+  justify-content: center;
+}
+body .keyboard .letter {
+  background: black;
+  color: wheat;
+  cursor: pointer;
+  border: 2px solid wheat;
+  justify-content: center;
+  font-weight: bold;
+  line-height: 45px;
+}
+body .keyboard .uppercase {
+  grid-row: 1/6;
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr;
+  transform: scale(-1, -1);
+}
+body .keyboard .space {
+  grid-column: 2/9;
+  width: auto;
+}
+body .keyboard .enter {
+  grid-column: 9/11;
+}
+body .keyboard:has(.letter:hover) .letter:not(:hover) {
+  opacity: 0.8;
+}
+body .done {
+  display: none;
+}
+body h1 {
+  background: wheat;
+  color: black;
+  height: 40px;
+  max-width: 500px;
+  overflow: auto;
+}
+body .result {
+  background: none;
+  translate: 0 200px;
+}
