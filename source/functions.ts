@@ -1,9 +1,8 @@
+// let a:string[] = [];
 
+// keys.forEach(key=>{
+//     a.push(key.dataset.key!)
 
+// })
 
-export let Do = ()=>{
-
-    return "This is a function"
-}
-
-console.log("function component scope");
+// console.log(a);

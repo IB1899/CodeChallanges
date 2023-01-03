@@ -1,11 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Keyboard</title>
-    <link rel="stylesheet" href="./style/style.css">
+	<title>Keyboard</title>
+	<link rel="stylesheet" href="./style/style.css" />
 </head>
+
 <body>
-   
-    <script src="./app.js"  type="module"></script>
+	<div class="piano">
+		<div class="top">
+			<h2>Playable piano</h2>
+
+			<!-- The label selects the input by its id -->
+			<div class="slider">
+				<label for="slider" id="labelSlider">volume</label>
+
+				<!-- //! It takes values between 0 and 1 -->
+				<input type="range" id="sliderInput" name="slider" min="0" max="1" step="any" />
+			</div>
+
+			<div class="check">
+				<label for="check" id="labelCheck">Show Keys</label>
+				<input type="checkbox" id="checkBox" checked />
+			</div>
+		</div>
+
+		<div class="bottom">
+			<div class="block">
+				<div class="key white" data-key="a">a</div>
+				<div class="key white" data-key="s">s</div>
+				<div class="key white" data-key="d">d</div>
+				<div class="blackContainer">
+					<div class="key black" data-key="w">w</div>
+					<div class="key black" data-key="e">e</div>
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="key white" data-key="f">f</div>
+				<div class="key white" data-key="g">g</div>
+				<div class="key white" data-key="h">h</div>
+				<div class="key white" data-key="j">j</div>
+				<div class="blackContainer">
+					<div class="key black" data-key="t">t</div>
+					<div class="key black" data-key="y">y</div>
+					<div class="key black" data-key="u">u</div>
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="key white" data-key="k">k</div>
+				<div class="key white" data-key="l">l</div>
+				<div class="key white" data-key=";">;</div>
+				<div class="blackContainer">
+					<div class="key black" data-key="o">o</div>
+					<div class="key black" data-key="p">p</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="./app.js" type="module"></script>
 </body>
+
 </html>
