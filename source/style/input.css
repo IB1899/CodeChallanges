@@ -1,13 +1,34 @@
-* {
-  padding: 0;
-  margin: 0;
-}
+* { padding: 0;  margin: 0; }
 
-$light: green;
+/* Variables */
+$green: rgb(7, 255, 114);
 
-body {
-  background: $light;
-  h1 {
-    color: red;
-  }
+body { background: $green; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display:grid; justify-items:center;
+    
+    .dome{ text-align:center; margin-top:50px; width:80%;
+
+        .beforeScreening{ display:flex; flex-direction: column; align-items:center;
+            header{
+                h1{font-size:30px;}
+                h3{color:lightslategrey;}
+            }
+            p{width:500px; line-height:24px; margin:20px 0;}
+
+            button{ color:$green; background:white; padding:10px 15px; border:none; cursor:pointer; }
+        }
+
+        .afterScreening{ position:fixed; top:0; left:0; height:100%; width:100%; background:rgba(0, 0, 0,.60); display:grid;
+            justify-content:center;  display:none;
+            
+            .preview{ margin:10px 0; width:800px; background:white; height:fit-content;
+
+                img{width:800px;}
+                
+                #close{position:absolute; right:200px; color:white; font-size:30px; font-weight:bold; cursor:pointer;}
+            }
+            
+            &.show{ display:grid; }
+        }
+    }
 }

@@ -1,61 +1,36 @@
 "use strict";
-//! The volumeSlider. to manipulate the sound volume.
-let volumeSlider = document.querySelector("#sliderInput");
-//* When changing the input of the volumeSlider run this function
-volumeSlider.oninput = () => {
-    //? 'audio.volume' accepts a range between 0 , 1
-    audio.volume = volumeSlider.valueAsNumber;
-};
-//-------------------------------------------------------------------------
-//! Check box. to show and hide the letters in the keys
-let checkBox = document.querySelector("#checkBox");
-//! Blocks. to change its classlist
-let blocks = document.querySelectorAll(".block");
-//* Show and hide the letters when clicking the checkbox.
-checkBox.onclick = () => {
-    if (checkBox.checked === false) {
-        blocks.forEach(block => block.classList.add("hide"));
+//! The container
+let afterScreening = document.querySelector(".afterScreening");
+//! The first capture button
+let firstButton = document.querySelector(".firstButton");
+//! The close button
+let Close = document.querySelector("#close");
+firstButton.onclick = async () => {
+    try {
+        //* mediaDevices provides access to connected media inputs like camera , microphones and screen sharing.
+        let stream = await navigator.mediaDevices.getDisplayMedia();
+        let video = document.createElement("video");
+        video.onloadedmetadata = () => {
+            let canvas = document.createElement("canvas");
+            let ctx = canvas.getContext("2d");
+            //* Passing video's width & height as canvas's width & height
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            video.play();
+            //* Drawing an image from the captured video stream
+            ctx?.drawImage(video, 0, 0, canvas.width, canvas.height);
+            //* Terminating first video track of the stream
+            stream.getVideoTracks()[0].stop();
+            afterScreening.classList.add("show");
+            let img = afterScreening.querySelector("img");
+            img.src = canvas.toDataURL();
+        };
+        video.srcObject = stream;
     }
-    else {
-        blocks.forEach(block => block.classList.remove("hide"));
+    catch (err) {
+        alert("Failed to capture the screen");
     }
 };
-//-------------------------------------------------------------------------
-//! The piano keys
-let keys = document.querySelectorAll(".key");
-//! Instance of the Audio class to manipulate audio files
-let audio = new Audio("");
-//* Clicking the keys.
-keys.forEach(key => {
-    //* Each key has a specific value.
-    key.onclick = () => {
-        //! The key value "key.dataset.key" = the audio file name ,
-        //* so when clicking on each key it will play different audio files
-        audio.src = `audio/${key.dataset.key}.wav`;
-        audio.play();
-    };
-});
-//* Clicking the keyboard.
-//* When clicking the keyboard button play the same tune of the letter.
-document.onkeydown = (e) => {
-    keys.forEach(key => {
-        //? Check the clicked keyboard key is in the list of keys 
-        if (e.key === key.dataset.key) {
-            audio.src = `audio/${e.key}.wav`;
-            audio.play();
-            key.classList.add("active");
-            setTimeout(() => {
-                key.classList.remove("active");
-            }, 100);
-        }
-    });
-    //! or
-    // let AllKeys:string[];
-    // keys.forEach(key=>{
-    //     AllKeys.push(key.dataset.key!);
-    //     if(AllKeys.includes(e.key)){
-    //          run the audio
-    //     }
-    // })
+Close.onclick = () => {
+    afterScreening.classList.remove("show");
 };
-//-------------------------------------------------------------------------
