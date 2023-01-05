@@ -1,0 +1,13 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+$light: green;
+
+body {
+  background: $light;
+  h1 {
+    color: red;
+  }
+}
