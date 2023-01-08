@@ -2,13 +2,66 @@
 <html lang="en">
 
 <head>
-	<title>Keyboard</title>
+
+	<!-- Google fonts -->
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+	<title>password generator</title>
 	<link rel="stylesheet" href="./style/style.css" />
+
+	<script src="./app.js" type="module" defer></script>
 </head>
 
 <body>
 
-	<script src="./app.js" type="module"></script>
+	<div class="container">
+
+		<h1>Password Generator</h1>
+
+		<div class="PasswordContainer">
+			<h3 class="password"></h3>
+
+			<span class="material-symbols-outlined" id="copy"> content_copy </span>
+			<!-- <input type="text" value="bv6555**)(Y*(T?tytrvyeyu5y" disabled> -->
+		</div>
+
+		<div class="PasswordStrength"></div>
+
+		<div class="PasswordLength">
+			<label for="slider">Password Length</label>
+			<span id="PasswordLength">15</span>
+			<br />
+			<input type="range" id="slider" value="15" max="30" min="1">
+		</div>
+
+		<div class="PasswordSettings">
+			<label class="mainlabel"> Password Settings </label>
+
+			<!-- 1 -->
+			<input type="checkbox" id="lowercase" checked disabled>
+			<label for="lowercase">Lowercase (a-z)</label>
+			<!-- 2 -->
+			<input type="checkbox" id="uppercase">
+			<label for="uppercase">Uppercase (A-Z)</label>
+			<!-- 3 -->
+			<input type="checkbox" id="number">
+			<label for="number">Numbers (0-9)</label>
+			<!-- 4 -->
+			<input type="checkbox" id="symbols">
+			<label for="symbols">Symbols (#-%-&-*)</label>
+			<!-- 5 -->
+			<input type="checkbox" id="ExcludeDuplicates">
+			<label for="ExcludeDuplicates">Exclude Duplicates</label>
+			<!-- 6 -->
+			<input type="checkbox" id="IncludeSpaces">
+			<label for="IncludeSpaces">Include Spaces</label>
+
+		</div>
+
+		<button class="generate">generate password</button>
+
+	</div>
 </body>
 
 </html>
