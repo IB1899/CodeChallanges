@@ -3,10 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:js": "tsc -w",
+    "build:css": "postcss source/style/input.css -o public/style/style.css -w"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "cssnano": "^5.1.14",
+    "postcss": "^8.4.20",
+    "postcss-cli": "^10.1.0",
+    "postcss-font-magician": "^3.0.0",
+    "postcss-preset-env": "^7.8.3",
+    "precss": "^4.0.0"
+  }
 }
