@@ -3,11 +3,30 @@
   margin: 0;
 }
 
-$light: green;
+$color:rgb(0, 255, 229);
 
-body {
-  background: $light;
-  h1 {
-    color: red;
+body {  background:$color; display:grid; justify-content:center; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  .container{ text-align:center; margin:100px; background:whitesmoke; padding:15px; border-radius:10px; box-shadow:2px 2px 8px gray;
+
+    img{ width:110px; }
+
+    .time{ margin:25px 10px; font-size:27px; }
+
+    .settings{ display:flex;  justify-content:center; margin:30px 0;
+      
+      select{ background:$color; margin:15px; padding:5px;  font-weight:bold; cursor:pointer; outline:none; border:none;
+        box-shadow:2px 2px 4px gray; border-radius:2px; font-size:16px;
+        option{ font-weight:bold;  }
+      }
+    }
+    .settings.disable{ select{ pointer-events:none; color:red; }}
+
+    button{ border:none; background:$color; width:95%; padding:10px; cursor:pointer; font-weight:700; font-size:19px; margin:5px;
+      border-radius:5px; transition:.3s;
+      &:hover{ color:white; transition:.3s; }
+    }
+
+
   }
 }

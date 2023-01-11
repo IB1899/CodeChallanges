@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-
-	<title></title>
+	<link rel="icon" href="./files/clock.svg" />
+	<title>Alarm</title>
 	<link rel="stylesheet" href="./style/style.css" />
 	<script src="./app.js" type="module" defer></script>
 </head>
 <body>
+	<div class="container">
+		<img src="./files/clock.svg" alt="" />
 
-	
+		<h2 class="time"></h2>
+
+		<div class="settings">
+			<select id="hours">
+				<option value="Hour" selected hidden>Hour</option>
+			</select>
+
+			<select id="minutes">
+				<option value="Minute" selected hidden>Minute</option>
+			</select>
+
+			<select id="time">
+				<option value="AM/PM" selected hidden>AM/PM</option>
+				<option value="AM">AM</option>
+				<option value="PM">PM</option>
+			</select>
+		</div>
+
+		<button>Set Alarm</button>
+	</div>
 </body>
 </html>
